@@ -1,6 +1,5 @@
-import 'package:bai_tap/thuc_hanh_screen.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_application_1/thuc_hanh_screen.dart';
 
 void main() => runApp(const MyApp());
 
