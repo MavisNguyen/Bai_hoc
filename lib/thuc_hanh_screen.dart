@@ -22,10 +22,10 @@ class _ThucHanhScreenState extends State<ThucHanhScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
+            const SizedBox(
               width: 300,
               height: 100,
-              child:  Text(
+              child: Text(
                 textAlign: TextAlign.center,
                 'The loudest sound pruduced by any animal is 188 decidels. That animal is the African elephant.',
                 style: TextStyle(color: Colors.white, fontSize: 20),
@@ -34,31 +34,39 @@ class _ThucHanhScreenState extends State<ThucHanhScreen> {
             Container(
               height: 50,
             ),
-            Container(
-              color: const Color.fromARGB(255, 12, 167, 17),
-              width: 300,
-              height: 40,
-              child: Text(
-                textAlign: TextAlign.center,
-                'True',
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
+            nhunay(
+              ab: 'TRUE',
+              mau: const Color.fromARGB(255, 11, 110, 14),
             ),
             Container(
               height: 20,
             ),
-            Container(
-              color: const Color.fromARGB(255, 204, 34, 22),
-              width: 300,
-              height: 40,
-              child: Text(
-                textAlign: TextAlign.center,
-                'False',
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
+            nhunay(
+              ab: 'FALSE',
+              mau: const Color.fromARGB(255, 201, 26, 14),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class nhunay extends StatelessWidget {
+  const nhunay({required this.ab, required this.mau});
+  final String ab;
+  final Color mau;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: mau,
+      width: 300,
+      height: 40,
+      child: Text(
+        textAlign: TextAlign.center,
+        ab,
+        style: const TextStyle(color: Colors.white, fontSize: 20),
       ),
     );
   }
