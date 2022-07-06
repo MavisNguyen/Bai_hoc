@@ -16,61 +16,46 @@ class _ThucHanhScreenState extends State<ThucHanhScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //Random mac dinh la 0-100
-    //So bat dau la 0 ma minh can bat dau la 1
-    //Gioi han la 6
-    //Sua lai tu 1 den 6
-    int random1 = random.nextInt(6) + 1;
-    int random2 = random.nextInt(6) + 1;
-    //Cac bai tap se code o day
-    ///Dau tien la một danh sách hàng cột
-    // Thuoc tinh thi nen ghi ngoài children với child
-    //Muon long no thi nhu the nay
-    //Ctr+ .
-    //lam giua the cho nhanh
-    //? Cho no Container day lam gi
     return Container(
-      color: Colors.blue,
+      color: Colors.black,
       child: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //Ghi duong dan anh vo do voi ten cua buc anh
-            //Anh chua co kich thuoc nen khong xuat hien
-            //Chắc ảnh phải ở trong cái gì đó mới hiện lên
-            //Gio chi cho xoa container nhanh ne
-            //Ctr+. => Remove this widget
-
-            //Gio lam 1 lan click thi tang hinh anh xuc xac tang len 1
-            InkWell(
-              onTap: () {
-                //Dung setState trong nut nhan moi cap nhat lai man hinh
-                setState(() {
-                  random;
-                });
-              },
-              child: Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.red,
-                  //Chi can doi ten anh o day
-                  child: Image.asset('assets/images/dice$random1.png')),
+            SizedBox(
+              width: 300,
+              height: 100,
+              child:  Text(
+                textAlign: TextAlign.center,
+                'The loudest sound pruduced by any animal is 188 decidels. That animal is the African elephant.',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
             ),
-
             Container(
-              width: 150,
+              height: 50,
             ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  random;
-                });
-              },
-              child: Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.red,
-                  child: Image.asset('assets/images/dice$random2.png')),
+            Container(
+              color: const Color.fromARGB(255, 12, 167, 17),
+              width: 300,
+              height: 40,
+              child: Text(
+                textAlign: TextAlign.center,
+                'True',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            ),
+            Container(
+              height: 20,
+            ),
+            Container(
+              color: const Color.fromARGB(255, 204, 34, 22),
+              width: 300,
+              height: 40,
+              child: Text(
+                textAlign: TextAlign.center,
+                'False',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
             ),
           ],
         ),
