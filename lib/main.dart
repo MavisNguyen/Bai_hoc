@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/thuc_hanh_screen.dart';
+import 'package:flutter_application_1/chi_tiet_tinh_toan.dart';
+import 'package:flutter_application_1/tinh_toan_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -26,7 +27,7 @@ class _MyAppState extends State<MyApp> {
         ),
         //Container là hop chua het phan duoi
 
-        body: ThucHanhScreen(),
+        body: const TinhToanScreen(),
       ),
     );
   }
