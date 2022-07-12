@@ -1,7 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/chi_tiet_tinh_toan.dart';
+import 'package:flutter_application_1/model/quiz_data.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class TinhToanScreen extends StatefulWidget {
   const TinhToanScreen({Key? key}) : super(key: key);
@@ -11,77 +12,148 @@ class TinhToanScreen extends StatefulWidget {
 }
 
 class _ThucHanhScreenState extends State<TinhToanScreen> {
-  //Phai bo bien tren nay moi chay nha :v
-//*Mo ta: Tinh toan 2 so random va kiem tra đung hay sai => sai la ra man hinh ket qua
-//Cach thuc hien: so1 va so(random 10-50  ) roi tinh toan cong=> dung la doi cau hoi (random tiep)
-  Random random = Random();
+  //1. Goi ten manhinh quizData
+  QuizData quizData = QuizData();
   int count = 0;
-  int b = 0;
 
   @override
   Widget build(BuildContext context) {
-    int number1 = 1 + random.nextInt(3);
-    int number2 = 1 + random.nextInt(3);
-    //hmm neu ma random so xa z ma random ca ket qua thi kho :v
-    //Kiem tra so cau hoi dung
-    ///Moi man hinh phai co scafford
+    ///! MOI MAN HINH CAN CO SCAFFORD
+    //Moi lan bam next 1 cau hoi
 
-    int randomResult = 3 + random.nextInt(3);
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-      ),
       body: Container(
-        color: const Color.fromARGB(31, 65, 62, 62),
+        color: const Color.fromARGB(255, 51, 50, 50),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-          Row(
-            children: [
-              Flexible(child: ContainData(colour: Colors.red, text: '1',)),
-              Flexible(child: ContainData(colour: Colors.blue, text: '2',)),
-              
-            ],
+            Container(
+              alignment: Alignment.center,
+              height: 100,
+              width: 400,
+              child: Text(
+                'ĐIỂM: ${quizData.score}',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              height: 300,
+              //Hien cau hoi dau tien
+              child: Text(
+                quizData.layCauHoi(),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Container(
+              width: 320,
+              height: 50,
+              color: Colors.green,
+              alignment: Alignment.center,
+              child: MaterialButton(
+                height: 40,
+                minWidth: 320,
+                onPressed: () {
+                  if (quizData.layTraLoi() == true) {
+                    setState(() {
+                      //Khi cai nao muon cap nhat man hinh thi nho co setState
+                      //Dung thi next cau hoi nen moi cap nhat
+                      quizData.cauHoiTiepTheo();
+                    });
+                  } else {
+                    setState(() {
+                      quizData.reset() ;
+                    });
+                   Alert(
+      context: context,
+      type: AlertType.info,
+      title: "Sai roi",
+      desc: "Gang luyen tap cho nhiu vao.",
+      buttons: [
+        DialogButton(
+          child: Text(
+            "COOL",
+            style: TextStyle(color: Colors.white, fontSize: 20),
           ),
-          Row(
-            children: [
-           Flexible(child: ContainData(colour: Colors.green, text: '3',)),
-           Flexible(child: ContainData(colour: Colors.yellow, text: '4',)),
-              
-            ],
+          onPressed: () => Navigator.pop(context),
+          width: 120,
+        )
+      ],
+    ).show();
+                    
+                    
+                  }
+                },
+                child: const Text(
+                  'TRUE',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            
+            Container(
+              height: 20,
+            ),
+            Container(
+              width: 320,
+              height: 50,
+              color: Colors.red,
+              alignment: Alignment.center,
+              child: MaterialButton(
+                height: 40,
+                minWidth: 320,
+                onPressed: () {
+                  if (quizData.layTraLoi() == false) {
+                    setState(() {
+                      //Khi cai nao muon cap nhat man hinh thi nho co setState
+                      //Dung thi next cau hoi nen moi cap nhat
+                      quizData.cauHoiTiepTheo();
+                    });
+                  } else {
+                    print('sai roi sep');
+                     setState(() {
+                      quizData.reset() ;
+                    });
+                       Alert(
+      context: context,
+      type: AlertType.info,
+      title: "Sai roi",
+      desc: "Gang luyen tap cho nhiu vao.",
+      buttons: [
+        DialogButton(
+          child: Text(
+            "COOL",
+            style: TextStyle(color: Colors.white, fontSize: 20),
           ),
-          Image.asset(
-            'assets/images/mon.png',
-            width: 300,
-            height: 300,
-          ),
-        ]),
-      ),
-    );
-  }
-}
-
-class ContainData extends StatelessWidget {
-  ContainData({required this.text, required this.colour});
-  final String text;
-  final Color colour;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-    
-      color: colour,
-      alignment: Alignment.center,
-      child: MaterialButton(
-        onPressed: () {},
-          height: 80,
-        child:  Text(
-          text,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          onPressed: () => Navigator.pop(context),
+          width: 120,
+        )
+      ],
+    ).show();
+                  }
+                },
+                child: const Text(
+                  'FALSE',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
