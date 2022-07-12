@@ -12,23 +12,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int bienDem = 0;
   @override
   Widget build(BuildContext context) {
     //bat dau tu MaterialApp > scafforld (bat duoc)
     //Trong scafforld có nhiều thuộc tính
     //App bar là cái đầu nó luôn hiện lên thế
     //Giowf cho app bar ra giữa màn hình
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Doraemon'),
-          centerTitle: true,
-        ),
-        //Container là hop chua het phan duoi
-
-        body: const TinhToanScreen(),
-      ),
+    return const MaterialApp(
+      home: TinhToanScreen(),
     );
   }
 }

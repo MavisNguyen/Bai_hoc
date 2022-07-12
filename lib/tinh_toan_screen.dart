@@ -24,153 +24,64 @@ class _ThucHanhScreenState extends State<TinhToanScreen> {
     int number2 = 1 + random.nextInt(3);
     //hmm neu ma random so xa z ma random ca ket qua thi kho :v
     //Kiem tra so cau hoi dung
+    ///Moi man hinh phai co scafford
 
     int randomResult = 3 + random.nextInt(3);
-    return Center(
-      child: Container(
-        width: 400,
-        color: const Color(0xff37384d),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+      ),
+      body: Container(
+        color: const Color.fromARGB(31, 65, 62, 62),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Row(
-              //Trong cai row nay co khoang cach o giua
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 150,
-                  height: 180,
-                  alignment: Alignment.center,
-                  child: const Text(
-                    'SCORE',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 150,
-                  height: 180,
-                  alignment: Alignment.center,
-                  child: Text(
-                    'BEST: $b',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Container(
-              alignment: Alignment.topCenter,
-              width: 400,
-              height: 100,
-              child: Text(
-                '$count',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              width: 400,
-              height: 150,
-              child: Text(
-                '$number1 + $number2 = $randomResult',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Row(
-              children: [
-//Button kiem tra dung
+          Row(
+            children: [
+              Flexible(child: ContainData(colour: Colors.red, text: '1',)),
+              Flexible(child: ContainData(colour: Colors.blue, text: '2',)),
+              
+            ],
+          ),
+          Row(
+            children: [
+           Flexible(child: ContainData(colour: Colors.green, text: '3',)),
+           Flexible(child: ContainData(colour: Colors.yellow, text: '4',)),
+              
+            ],
+          ),
+          Image.asset(
+            'assets/images/mon.png',
+            width: 300,
+            height: 300,
+          ),
+        ]),
+      ),
+    );
+  }
+}
 
-                Container(
-                  width: 200,
-                  height: 130,
-                  alignment: Alignment.center,
-                  child: MaterialButton(
-                    onPressed: () {
-                      ///Binh thuong mac dinh la nhan se khong the cap nhat man hinh=> dung setState la dc
-                      if (number1 + number2 == randomResult) {
-                        print('ket qua la dung random');
-                        //Neu dung thi cho cau hoi khac
-                        setState(() {
-                          random;
-                          count++;
-                          b = b + 10;
-                        });
-                      } else {
-                        //Neu sai thi cho qua man hinh qua ket qua
-                        print('ket qua la sai random');
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ChiTietTinhToanScreen(
-                                    layKeyQua: b,
-                                  )),
-                        );
-                      }
-                      print(count);
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: const Color(0xff37384d),
-                      radius: 40,
-                      child: Image.asset(
-                        'assets/images/cr.png',
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 200,
-                  height: 130,
-                  alignment: Alignment.center,
-                  child: MaterialButton(
-                    onPressed: () {
-                      if (number1 + number2 != randomResult) {
-                        print('Dung roi');
-                        //Neu dung thi cho cau hoi khac
-                        setState(() {
-                          random;
-                          count++;
-                          b = b + 10;
-                        });
-                      } else {
-                        //Neu sai thi cho qua man hinh qua ket qua
-                        print('Sai roi');
+class ContainData extends StatelessWidget {
+  ContainData({required this.text, required this.colour});
+  final String text;
+  final Color colour;
 
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ChiTietTinhToanScreen(
-                                    layKeyQua: b,
-                                  )),
-                        );
-                      }
-                      print(count);
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: const Color(0xff37384d),
-                      radius: 40,
-                      child: Image.asset(
-                        'assets/images/incr.png',
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            )
-          ],
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+    
+      color: colour,
+      alignment: Alignment.center,
+      child: MaterialButton(
+        onPressed: () {},
+          height: 80,
+        child:  Text(
+          text,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
