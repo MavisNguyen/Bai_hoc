@@ -61,7 +61,7 @@ class _ThucHanhScreenState extends State<TinhToanScreen> {
                 height: 40,
                 minWidth: 320,
                 onPressed: () {
-                  if (quizData.layTraLoi() == true) {
+                  if (quizData.CH1() == quizData.getTraLoi()) {
                     setState(() {
                       //Khi cai nao muon cap nhat man hinh thi nho co setState
                       //Dung thi next cau hoi nen moi cap nhat
@@ -69,30 +69,28 @@ class _ThucHanhScreenState extends State<TinhToanScreen> {
                     });
                   } else {
                     setState(() {
-                      quizData.reset() ;
+                      quizData.reset();
                     });
-                   Alert(
-      context: context,
-      type: AlertType.info,
-      title: "Sai roi",
-      desc: "Gang luyen tap cho nhiu vao.",
-      buttons: [
-        DialogButton(
-          child: Text(
-            "COOL",
-            style: TextStyle(color: Colors.white, fontSize: 20),
-          ),
-          onPressed: () => Navigator.pop(context),
-          width: 120,
-        )
-      ],
-    ).show();
-                    
-                    
+                    Alert(
+                      context: context,
+                      type: AlertType.info,
+                      title: "Sai roi",
+                      desc: "Gang luyen tap cho nhiu vao.",
+                      buttons: [
+                        DialogButton(
+                          child: Text(
+                            "COOL",
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                          onPressed: () => Navigator.pop(context),
+                          width: 120,
+                        )
+                      ],
+                    ).show();
                   }
                 },
-                child: const Text(
-                  'TRUE',
+                child: Text(
+                  quizData.CH1(),
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
@@ -101,7 +99,6 @@ class _ThucHanhScreenState extends State<TinhToanScreen> {
                 ),
               ),
             ),
-            
             Container(
               height: 20,
             ),
@@ -114,7 +111,7 @@ class _ThucHanhScreenState extends State<TinhToanScreen> {
                 height: 40,
                 minWidth: 320,
                 onPressed: () {
-                  if (quizData.layTraLoi() == false) {
+                  if (quizData.CH2() == quizData.getTraLoi()) {
                     setState(() {
                       //Khi cai nao muon cap nhat man hinh thi nho co setState
                       //Dung thi next cau hoi nen moi cap nhat
@@ -122,29 +119,79 @@ class _ThucHanhScreenState extends State<TinhToanScreen> {
                     });
                   } else {
                     print('sai roi sep');
-                     setState(() {
-                      quizData.reset() ;
+                    setState(() {
+                      quizData.reset();
                     });
-                       Alert(
-      context: context,
-      type: AlertType.info,
-      title: "Sai roi",
-      desc: "Gang luyen tap cho nhiu vao.",
-      buttons: [
-        DialogButton(
-          child: Text(
-            "COOL",
-            style: TextStyle(color: Colors.white, fontSize: 20),
-          ),
-          onPressed: () => Navigator.pop(context),
-          width: 120,
-        )
-      ],
-    ).show();
+                    Alert(
+                      context: context,
+                      type: AlertType.info,
+                      title: "Sai roi",
+                      desc: "Gang luyen tap cho nhiu vao.",
+                      buttons: [
+                        DialogButton(
+                          child: Text(
+                            "COOL",
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                          onPressed: () => Navigator.pop(context),
+                          width: 120,
+                        )
+                      ],
+                    ).show();
                   }
                 },
-                child: const Text(
-                  'FALSE',
+                child:  Text(
+                  quizData.CH2(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              height: 20,
+            ),
+            Container(
+              width: 320,
+              height: 50,
+              color: Colors.blue,
+              alignment: Alignment.center,
+              child: MaterialButton(
+                height: 40,
+                minWidth: 320,
+                onPressed: () {
+                  if (quizData.CH3() == quizData.getTraLoi()) {
+                    setState(() {
+                      //Khi cai nao muon cap nhat man hinh thi nho co setState
+                      //Dung thi next cau hoi nen moi cap nhat
+                      quizData.cauHoiTiepTheo();
+                    });
+                  } else {
+                    setState(() {
+                      quizData.reset();
+                    });
+                    Alert(
+                      context: context,
+                      type: AlertType.info,
+                      title: "Sai roi",
+                      desc: "Gang luyen tap cho nhiu vao.",
+                      buttons: [
+                        DialogButton(
+                          child: Text(
+                            "COOL",
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                          onPressed: () => Navigator.pop(context),
+                          width: 120,
+                        )
+                      ],
+                    ).show();
+                  }
+                },
+                child: Text(
+                  quizData.CH3(),
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,

@@ -11,15 +11,72 @@ class QuizData {
 
   ///
   List<Quiz> listData = [
-    Quiz(cauHoi: '1+1=5', traLoi: false),
-    Quiz(cauHoi: 'Chó với mèo con nào to hơn => mèo', traLoi: false),
-    Quiz(cauHoi: '1+3=4', traLoi: true),
-    Quiz(cauHoi: '1+8=9', traLoi: true),
-    Quiz(cauHoi: '3+4=5', traLoi: false),
-    Quiz(cauHoi: '9+9=9', traLoi: false),
-    Quiz(cauHoi: '4+1=5', traLoi: true),
-    Quiz(cauHoi: '2+1=5', traLoi: false),
-    Quiz(cauHoi: '3+2=5', traLoi: true),
+    Quiz(
+        cauHoi: '1 + 1',
+        cauTraLoi1: '5',
+        cauTraLoi2: '3',
+        cauTraLoi3: '2',
+        cauTraLoiDung: '2'),
+    Quiz(
+        cauHoi: '12 + 16',
+        cauTraLoi1: '28',
+        cauTraLoi2: '38',
+        cauTraLoi3: '22',
+        cauTraLoiDung: '28'),
+    Quiz(
+        cauHoi: '32 + 8',
+        cauTraLoi1: '52',
+        cauTraLoi2: '40',
+        cauTraLoi3: '25',
+        cauTraLoiDung: '40'),
+    Quiz(
+        cauHoi: '7 + 12',
+        cauTraLoi1: '25',
+        cauTraLoi2: '36',
+        cauTraLoi3: '19',
+        cauTraLoiDung: '19'),
+    Quiz(
+        cauHoi: '33 + 77',
+        cauTraLoi1: '100',
+        cauTraLoi2: '110',
+        cauTraLoi3: '101',
+        cauTraLoiDung: '110'),
+    Quiz(
+        cauHoi: '5 x 15',
+        cauTraLoi1: '75',
+        cauTraLoi2: '34',
+        cauTraLoi3: '25',
+        cauTraLoiDung: '75'),
+    Quiz(
+        cauHoi: '64 : 8',
+        cauTraLoi1: '5',
+        cauTraLoi2: '3',
+        cauTraLoi3: '8',
+        cauTraLoiDung: '8'),
+    Quiz(
+        cauHoi: '37 + 38',
+        cauTraLoi1: '74',
+        cauTraLoi2: '75',
+        cauTraLoi3: '72',
+        cauTraLoiDung: '75'),
+    Quiz(
+        cauHoi: '11 x 11',
+        cauTraLoi1: '111',
+        cauTraLoi2: '121',
+        cauTraLoi3: '131',
+        cauTraLoiDung: '121'),
+    Quiz(
+        cauHoi: '2048 : 2',
+        cauTraLoi1: '1020',
+        cauTraLoi2: '1023',
+        cauTraLoi3: '1024',
+        cauTraLoiDung: '1024'),
+    Quiz(
+        cauHoi: '123 + 327',
+        cauTraLoi1: '450',
+        cauTraLoi2: '350',
+        cauTraLoi3: '354',
+        cauTraLoiDung: '450'),
   ];
 
   void cauHoiTiepTheo() {
@@ -41,9 +98,21 @@ class QuizData {
   String layCauHoi() {
     return listData[demCauHoi].cauHoi;
   }
+String CH1() {
+    return listData[demCauHoi].cauTraLoi1;
+  }
+  String CH2() {
+    return listData[demCauHoi].cauTraLoi2;
+  }
+  String CH3() {
+    return listData[demCauHoi].cauTraLoi3;
+  }
+  String getCauHoi() {
+    return listData[demCauHoi].cauHoi;
+  }
 
 //Tra ve bool
-  bool layTraLoi() {
-    return listData[demCauHoi].traLoi;
+  String getTraLoi() {
+    return listData[demCauHoi].cauTraLoiDung;
   }
 }
