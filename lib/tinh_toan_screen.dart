@@ -1,8 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/model/quiz_data.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:flutter_application_1/day.dart';
+import 'package:flutter_application_1/day_data.dart';
 
 class TinhToanScreen extends StatefulWidget {
   const TinhToanScreen({Key? key}) : super(key: key);
@@ -12,197 +10,121 @@ class TinhToanScreen extends StatefulWidget {
 }
 
 class _ThucHanhScreenState extends State<TinhToanScreen> {
-  //1. Goi ten manhinh quizData
-  QuizData quizData = QuizData();
-  int count = 0;
-
+  daydata Daydata = daydata();
   @override
   Widget build(BuildContext context) {
-    ///! MOI MAN HINH CAN CO SCAFFORD
-    //Moi lan bam next 1 cau hoi
-
     return Scaffold(
+      appBar: AppBar(),
       body: Container(
-        color: const Color.fromARGB(255, 51, 50, 50),
-        child: Column(
-          children: [
-            Container(
-              alignment: Alignment.center,
-              height: 100,
-              width: 400,
-              child: Text(
-                'ĐIỂM: ${quizData.score}',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              height: 300,
-              //Hien cau hoi dau tien
-              child: Text(
-                quizData.layCauHoi(),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Container(
-              width: 320,
-              height: 50,
-              color: Colors.green,
-              alignment: Alignment.center,
-              child: MaterialButton(
-                height: 40,
-                minWidth: 320,
-                onPressed: () {
-                  if (quizData.CH1() == quizData.getTraLoi()) {
-                    setState(() {
-                      //Khi cai nao muon cap nhat man hinh thi nho co setState
-                      //Dung thi next cau hoi nen moi cap nhat
-                      quizData.cauHoiTiepTheo();
-                    });
-                  } else {
-                    setState(() {
-                      quizData.reset();
-                    });
-                    Alert(
-                      context: context,
-                      type: AlertType.info,
-                      title: "Sai roi",
-                      desc: "Gang luyen tap cho nhiu vao.",
-                      buttons: [
-                        DialogButton(
-                          child: Text(
-                            "COOL",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          onPressed: () => Navigator.pop(context),
-                          width: 120,
-                        )
-                      ],
-                    ).show();
-                  }
-                },
+        child: Center(
+          child: Column(
+            
+            children: [
+              Container(
+                alignment: Alignment.center,
+                color: Colors.black,
+                height: 30,width: 500,
                 child: Text(
-                  quizData.CH1(),
+                  'Đăng nhập vào hệ thống',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
                   ),
                 ),
               ),
-            ),
-            Container(
-              height: 20,
-            ),
-            Container(
-              width: 320,
-              height: 50,
-              color: Colors.red,
-              alignment: Alignment.center,
-              child: MaterialButton(
-                height: 40,
-                minWidth: 320,
-                onPressed: () {
-                  if (quizData.CH2() == quizData.getTraLoi()) {
-                    setState(() {
-                      //Khi cai nao muon cap nhat man hinh thi nho co setState
-                      //Dung thi next cau hoi nen moi cap nhat
-                      quizData.cauHoiTiepTheo();
-                    });
-                  } else {
-                    print('sai roi sep');
-                    setState(() {
-                      quizData.reset();
-                    });
-                    Alert(
-                      context: context,
-                      type: AlertType.info,
-                      title: "Sai roi",
-                      desc: "Gang luyen tap cho nhiu vao.",
-                      buttons: [
-                        DialogButton(
-                          child: Text(
-                            "COOL",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          onPressed: () => Navigator.pop(context),
-                          width: 120,
-                        )
-                      ],
-                    ).show();
-                  }
-                },
-                child:  Text(
-                  quizData.CH2(),
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              height: 20,
-            ),
-            Container(
-              width: 320,
-              height: 50,
-              color: Colors.blue,
-              alignment: Alignment.center,
-              child: MaterialButton(
-                height: 40,
-                minWidth: 320,
-                onPressed: () {
-                  if (quizData.CH3() == quizData.getTraLoi()) {
-                    setState(() {
-                      //Khi cai nao muon cap nhat man hinh thi nho co setState
-                      //Dung thi next cau hoi nen moi cap nhat
-                      quizData.cauHoiTiepTheo();
-                    });
-                  } else {
-                    setState(() {
-                      quizData.reset();
-                    });
-                    Alert(
-                      context: context,
-                      type: AlertType.info,
-                      title: "Sai roi",
-                      desc: "Gang luyen tap cho nhiu vao.",
-                      buttons: [
-                        DialogButton(
-                          child: Text(
-                            "COOL",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                          onPressed: () => Navigator.pop(context),
-                          width: 120,
-                        )
-                      ],
-                    ).show();
-                  }
-                },
+              Container(
+                alignment: Alignment.center,
+                color: Colors.purple,
+                height: 220,width: 500,
                 child: Text(
-                  quizData.CH3(),
-                  style: TextStyle(
+                  'CSCOM',style: TextStyle(
                     color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 60,
                   ),
                 ),
               ),
-            ),
-          ],
+              Container(
+                height: 30,
+              ),
+              Container(
+                width: 300,height: 50,alignment:Alignment.center,
+                 
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black  ),
+              ),
+              child: Text(
+                'TenDangNhap',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+              ),
+              Container(
+                height: 30,
+              ),
+               Container(
+                width: 300,height: 50,alignment:Alignment.center,
+                 
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black  ),
+              ),
+              
+              child: Text(
+                '***************',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+              ),
+              Container(
+                height: 30,
+              ),
+              Container(
+                width: 300,height: 50,alignment:Alignment.center,
+                color: Colors.purple,
+                child: MaterialButton(
+                  minWidth: 300,height: 50,
+                  onPressed: () {},
+                  child: Text(
+                    'Đăng nhập',style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                
+                  ),
+                ),
+              ),
+              Container(
+                height: 10,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                     height:20, width: 100,alignment: Alignment.centerRight,
+                    child: Image.asset('assets/images/cr.png',),
+                  ),
+                  Container(
+                     height:40, width:300,alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Lưu thông tin đăng nhập',style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
-      ),
+      )
     );
   }
 }
