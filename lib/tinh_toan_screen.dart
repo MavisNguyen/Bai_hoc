@@ -16,110 +16,88 @@ class _ThucHanhScreenState extends State<TinhToanScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: Container(
+        color: Color(0xff095c92),
         child: Center(
           child: Column(
-            
             children: [
               Container(
-                alignment: Alignment.center,
-                color: Colors.black,
-                height: 30,width: 500,
+                width: 500,height: 200,alignment: Alignment.bottomCenter,
                 child: Text(
-                  'Đăng nhập vào hệ thống',
+                  'Facebook',style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
+                  ),
+                ),
+              ),
+              Container(
+                height: 25,
+              ),
+              Container(
+                width: 300,height: 50,padding: const EdgeInsets.only(left: 18),alignment: Alignment.centerLeft,
+                 decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),color: Colors.white,),
+                child: Text(
+                  'Your Email or Phone',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 14,
+                  ),
+                ), 
+              ),
+              Container(
+                height: 15,
+              ),
+              Container(
+                width: 300,height: 50,padding: const EdgeInsets.only(left: 18),alignment: Alignment.centerLeft,
+                 decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),color: Colors.white,),
+                child: Text(
+                  'Your Password',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 14,
+                  ),
+                ), 
+              ),
+              Container(
+                height: 15,
+              ),
+              Container(
+                width: 300,height: 50,alignment: Alignment.center,
+                 decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),    color: Color(0xff1a88b9),),
+                child: MaterialButton(
+                  onPressed: (){},
+                  minWidth: 300,height: 50,
+                  child: Text(
+                    'LOG IN',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                ), 
+              ),
+              Container(
+                height: 40,width: 300,alignment: Alignment.bottomCenter,
+                child: Text(
+                  'Sign in',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize: 16,
                   ),
-                ),
+                ), 
               ),
               Container(
-                alignment: Alignment.center,
-                color: Colors.purple,
-                height: 220,width: 500,
+                height: 25,width: 300,alignment: Alignment.bottomCenter,
                 child: Text(
-                  'CSCOM',style: TextStyle(
+                  'Need Help?',
+                  style: TextStyle(
                     color: Colors.white,
-                    fontSize: 60,
+                    fontSize: 16,
                   ),
-                ),
-              ),
-              Container(
-                height: 30,
-              ),
-              Container(
-                width: 300,height: 50,alignment:Alignment.center,
-                 
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black  ),
-              ),
-              child: Text(
-                'TenDangNhap',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-              ),
-              Container(
-                height: 30,
-              ),
-               Container(
-                width: 300,height: 50,alignment:Alignment.center,
-                 
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black  ),
-              ),
-              
-              child: Text(
-                '***************',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-              ),
-              Container(
-                height: 30,
-              ),
-              Container(
-                width: 300,height: 50,alignment:Alignment.center,
-                color: Colors.purple,
-                child: MaterialButton(
-                  minWidth: 300,height: 50,
-                  onPressed: () {},
-                  child: Text(
-                    'Đăng nhập',style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
-                
-                  ),
-                ),
-              ),
-              Container(
-                height: 10,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                     height:20, width: 100,alignment: Alignment.centerRight,
-                    child: Image.asset('assets/images/cr.png',),
-                  ),
-                  Container(
-                     height:40, width:300,alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Lưu thông tin đăng nhập',style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ],
+                ), 
               ),
             ],
           ),
