@@ -1,108 +1,170 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/day.dart';
-import 'package:flutter_application_1/day_data.dart';
+import 'package:flutter_application_1/quiz_data.dart';
+import 'package:flutter_application_1/quiz.dart';
 
 class TinhToanScreen extends StatefulWidget {
   const TinhToanScreen({Key? key}) : super(key: key);
-
   @override
   State<TinhToanScreen> createState() => _ThucHanhScreenState();
 }
 
 class _ThucHanhScreenState extends State<TinhToanScreen> {
-  daydata Daydata = daydata();
+  quiz Quiz = quiz();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Container(
-        color: Color(0xff095c92),
+        color: Color(0xff04486b),
         child: Center(
           child: Column(
             children: [
               Container(
-                width: 500,height: 200,alignment: Alignment.bottomCenter,
+                width: 400,
+                height: 50,
+                alignment: Alignment.center,
                 child: Text(
-                  'Facebook',style: TextStyle(
+                  'Questions 5/10',
+                  style: TextStyle(
                     color: Colors.white,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    fontSize: 40,
                   ),
                 ),
               ),
               Container(
-                height: 25,
+                height: 207,
+                width: 260,
+                child: Image.asset(
+                  'assets/images/tv.png',
+                ),
               ),
               Container(
-                width: 300,height: 50,padding: const EdgeInsets.only(left: 18),alignment: Alignment.centerLeft,
-                 decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),color: Colors.white,),
-                child: Text(
-                  'Your Email or Phone',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                  ),
-                ), 
+                height: 50,
               ),
               Container(
-                height: 15,
-              ),
-              Container(
-                width: 300,height: 50,padding: const EdgeInsets.only(left: 18),alignment: Alignment.centerLeft,
-                 decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),color: Colors.white,),
-                child: Text(
-                  'Your Password',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                  ),
-                ), 
-              ),
-              Container(
-                height: 15,
-              ),
-              Container(
-                width: 300,height: 50,alignment: Alignment.center,
-                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),    color: Color(0xff1a88b9),),
-                child: MaterialButton(
-                  onPressed: (){},
-                  minWidth: 300,height: 50,
-                  child: Text(
-                    'LOG IN',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
+                width: 400,
+                height: 70,
+                child: Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      width: 150,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: MaterialButton(
+                        minWidth: 150,
+                        height: 60,
+                        onPressed: () { },
+                        child: Text(
+                          'Máy tính',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ), 
+                    Container(
+                      width: 100,
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      width: 150,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: MaterialButton(onPressed: (){},minWidth:150,height: 60,
+                        child: Text(
+                          'Tivi',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
               Container(
-                height: 40,width: 300,alignment: Alignment.bottomCenter,
-                child: Text(
-                  'Sign in',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
-                ), 
+                width: 400,
+                height: 100,
+                alignment: Alignment.bottomCenter,
+                child: Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      width: 150,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: MaterialButton(onPressed: (){},minWidth:150,height: 60,
+                        child: Text(
+                          'Tủ lạnh',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 100,
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      width: 150,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: MaterialButton(onPressed: (){},minWidth:150,height: 60,
+                        child: Text(
+                          'Máy giặt',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
               Container(
-                height: 25,width: 300,alignment: Alignment.bottomCenter,
+                alignment: Alignment.center,
+                width: 150,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(20),
+                ),
                 child: Text(
-                  'Need Help?',
+                  'Kiểm tra',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
                   ),
-                ), 
+                ),
               ),
             ],
           ),
         ),
-      )
+      ),
     );
   }
 }
