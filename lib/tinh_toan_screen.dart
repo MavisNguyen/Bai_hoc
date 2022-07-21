@@ -15,152 +15,221 @@ class _ThucHanhScreenState extends State<TinhToanScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: Container(
-        color: Color(0xff04486b),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/bk.png', ),fit: BoxFit.fill
+          ),
+        ),
         child: Center(
           child: Column(
             children: [
               Container(
                 width: 400,
-                height: 50,
-                alignment: Alignment.center,
-                child: Text(
-                  'Questions 5/10',
+                height: 150,
+                alignment: Alignment.bottomLeft,
+                child: const Text(
+                  'Welcome Back!',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
+                    color: Color(0xff8f9974),
+                    fontSize: 35,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
               Container(
-                height: 207,
-                width: 260,
-                child: Image.asset(
-                  'assets/images/tv.png',
+                width: 400,
+                height: 20,
+                alignment: Alignment.bottomLeft,
+                child: const Text(
+                  'Sign in to your account',
+                  style: TextStyle(
+                    color: Color(0xffc2c2c2),
+                    fontSize: 15,
+                  ),
                 ),
               ),
               Container(
+                width: 400,
                 height: 50,
+                alignment: Alignment.bottomLeft,
+                child: const Text(
+                  'Email',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
               Container(
+                height: 10,
+              ),
+              Container(
+                color: const Color.fromARGB(255, 241, 239, 239),
                 width: 400,
-                height: 70,
+                height: 40,
                 child: Row(
                   children: [
                     Container(
-                      alignment: Alignment.center,
-                      width: 150,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: MaterialButton(
-                        minWidth: 150,
-                        height: 60,
-                        onPressed: () { },
-                        child: Text(
-                          'Máy tính',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      width: 10,
+                    ),
+                    Container(
+                      width: 380,
+                      height: 40,
+                      alignment: Alignment.centerLeft,
+                      color: const Color.fromARGB(255, 236, 236, 236),
+                      child: const Text(
+                        'Enter your Email',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 163, 163, 163),
+                          fontSize: 16,
                         ),
                       ),
                     ),
-                    Container(
-                      width: 100,
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      width: 150,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: MaterialButton(onPressed: (){},minWidth:150,height: 60,
-                        child: Text(
-                          'Tivi',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    )
                   ],
                 ),
               ),
               Container(
                 width: 400,
-                height: 100,
-                alignment: Alignment.bottomCenter,
+                height: 30,
+                alignment: Alignment.bottomLeft,
+                child: const Text(
+                  'Password',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              Container(
+                height: 10,
+              ),
+              Container(
+                color: const Color.fromARGB(255, 241, 239, 239),
+                width: 400,
+                height: 40,
                 child: Row(
                   children: [
                     Container(
-                      alignment: Alignment.center,
-                      width: 150,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: MaterialButton(onPressed: (){},minWidth:150,height: 60,
-                        child: Text(
-                          'Tủ lạnh',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      width: 10,
+                    ),
+                    Container(
+                      width: 380,
+                      height: 40,
+                      alignment: Alignment.centerLeft,
+                      color: const Color.fromARGB(255, 236, 236, 236),
+                      child: const Text(
+                        'Enter your Password',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 163, 163, 163),
+                          fontSize: 16,
                         ),
                       ),
                     ),
-                    Container(
-                      width: 100,
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      width: 150,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: MaterialButton(onPressed: (){},minWidth:150,height: 60,
-                        child: Text(
-                          'Máy giặt',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    )
                   ],
                 ),
               ),
               Container(
-                alignment: Alignment.center,
-                width: 150,
-                height: 60,
+                height: 10,
+              ),
+              SizedBox(
+                height: 30,
+                width: 400,
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/images/cr.png',
+                      height: 15,
+                      width: 15,
+                    ),
+                    Container(
+                      width: 25,
+                    ),
+                    SizedBox(
+                      width: 180,
+                      child: const Text(
+                        'Remember me',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 180,
+                      alignment: Alignment.centerRight,
+                      child: const Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                          color: Color(0xff8f9974),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 20,
+              ),
+              Container(
+                width: 400,
+                height: 50,
                 decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(8),
+                  color: const Color(0xff8f9974),
                 ),
-                child: Text(
-                  'Kiểm tra',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                alignment: Alignment.center,
+                child: MaterialButton(
+                  onPressed: () {},
+                  minWidth: 400,
+                  height: 50,
+                  child: const Text(
+                    'Sign In',
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
+              Container(
+                height: 20,
+              ),
+              Container(
+                alignment: Alignment.center,
+                width: 400,
+                height: 30,
+                child: Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.centerRight,
+                      width: 200,
+                      height: 30,
+                      child: const Text(
+                        'Not an accout yet?',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 13,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      width: 200,
+                      height: 30,
+                      child: const Text(
+                        ' Sign Up',
+                        style: TextStyle(
+                          color: Color(0xff8f9974),
+                          fontSize: 13,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
