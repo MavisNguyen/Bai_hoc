@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_application_1/datasp.dart';
 
 class TinhToanScreen extends StatefulWidget {
   const TinhToanScreen({Key? key}) : super(key: key);
@@ -12,175 +12,100 @@ class TinhToanScreen extends StatefulWidget {
 }
 
 class _ThucHanhScreenState extends State<TinhToanScreen> {
+  Datasp datasp = Datasp();
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
-      
       appBar: AppBar(),
       body: Container(
-        color: Color(0xff33333d),
+        color: Colors.white,
         child: Center(
           child: Column(
             children: [
-              Container(
-                height: 50,
-                child: Row(
-                  children: [
-                    Container(
-                      child: Image.asset(
-                        'assets/images/lg.png',
-                        height: 50,
-                        width: 50,
-                      ),
-                    ),
-                    Container(
-                      width: 20,
-                    ),
-                    Container(
-                      width: 300,
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Log in to Rally ',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+              ListView.separated(
+                  itemCount: datasp.dssp.length,
+                  shrinkWrap: true,
+                  separatorBuilder: (_, __) => Center(
+                    child: Container(
+                          height: 0.7,
+                         width: 450,
+                          color: Colors.grey,
                         ),
-                      ),
-                    ),
-                    Container(
-                      width: 900,
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        "Don't have an acount? ",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 70,
-                      alignment: Alignment.center,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.green),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: MaterialButton(
-                        onPressed: () {},
-                        child: Text(
-                          'SIGN UP ',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.white,
+                  ),
+                  itemBuilder: (_, index) {
+                    return Center(
+                        child: Column(
+                      children: [
+                        Container(width: 450,height: 95,
+                          child: Row(
+                            children: [
+                              Image.network(datasp.dssp[index].anh,width: 80,height: 80,alignment: Alignment.centerLeft,),
+                              Container(width: 10,),
+                              Container(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      width: 320,height: 30,alignment: Alignment.bottomLeft,
+                                      child: Text(
+                                        datasp.dssp[index].ten,
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 320,height:20,alignment: Alignment.centerLeft,
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            width:15,height: 15,
+                                            child: Image.network('assets/sanpham/dl.png',alignment: Alignment.centerLeft,)),
+                                         
+                                          Container(width:305,height: 15,
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(datasp.dssp[index].gia, style: TextStyle(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                            ),),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 320,height: 20,alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        datasp.dssp[index].diadiem,
+                                        style: TextStyle(
+                                          fontSize:12,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 320,height: 20,alignment: Alignment.topLeft,
+                                      child: Text(
+                                        datasp.dssp[index].luotmua,
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
                         ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                height: 200,
-              ),
-              Container(
-                width: 400,
-                height: 30,
-                padding: const EdgeInsets.only(left: 10),
-                alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                  color: Color(0xff26282f),
-                ),
-                child: Text(
-                  'Username',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Container(height: 5,),
-              Container(
-                width: 400,
-                height: 30,
-                padding: const EdgeInsets.only(left: 10),
-                alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                  color: Color(0xff26282f),
-                ),
-
-                child: Text(
-                  'Password',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Container(height: 10,),
-              Container(
-                height: 20,width: 400,
-                child: Center(
-                  child: Row(
-                  children: [
-                    Image.asset('assets/images/cr.png',width: 20,height: 20,),
-                    Container(
-                      width: 100,alignment: Alignment.center,
-                      child: Text('Remember me', style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),),
-                    ),
-                    Container(
-                      width: 210,
-                    ),
-                    Container(
-                      width: 70,
-                      decoration: BoxDecoration(color: Colors.green,borderRadius: BorderRadius.circular(4)),
-                      child: MaterialButton(onPressed: (){},
-                        child: Row(
-                          children: [
-                            Image.asset('assets/images/lich.png',width: 15,height: 15,),
-                            Text('LOGIN',style: TextStyle(color: Colors.black,fontSize: 12,fontWeight: FontWeight.bold),)
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                  ),
-                ),
-
-              ),
-              Container(height: 200,),
-              Row(
-                children: [Container(width: 10,),
-                  Container(
-                height: 30,width: 80,
-                decoration: BoxDecoration(color: Colors.purple,borderRadius: BorderRadius.circular(6)),
-                child: MaterialButton(onPressed: (){},
-                  child: Row(
-                    children: [
-                      Container(width: 5,),
-                      Image.asset('assets/images/back.png',width: 15,height: 15,color: Colors.white,alignment: Alignment.center),
-                      Container(width: 10,),
-                      Text('Back',style: TextStyle(
-                        fontSize:10,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),)
-                    ],
-                  ),
-                ),
-              )],
-              )
+                      ],
+                    ));
+                  }),
             ],
           ),
         ),
       ),
-
     );
   }
 }
